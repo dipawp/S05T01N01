@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es" dir="ltr">
+ <head th:replace="temp :: head">
+<title></title>
+</head>
+<body>
+  <header th:replace="temp :: header"></header>
+  
+  <div class="container">
+       <h1 th:text="${title}"></h1>
+  </div>
+  
+  
+  <div class="container">
+  <table class="table">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Nom Sucursal</th>
+      <th scope="col">Pais Sucursal</th>
+      <th scope="col">Ubicació</th>
+      <th scope="col">Modifcar</th>
+      <th scope="col">Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+  <th:block th:each="sc:${sucursals}">
+    <tr>
+    <th>
+      <a th:href="@{/sucursal/getOne/} + ${sc.pk_SucursalId}" th:text="${sc.pk_SucursalId}"></a></th>
+      <td th:text="${sc.nomSucursal}"></td>
+      <td th:text="${sc.paisScursal}"></td>
+      <td th:text="${sc.tipusSucursal}"></td>
+      <td>
+      <a class="btn btn-success btn-sm" th:href="@{/sucursal/update/} + ${sc.pk_SucursalId}" 
+         th:text="Modificar"></a>
+      </td>
+      <td>
+      <a class="btn btn-danger btn-sm" th:href="@{/sucursal/delete/} + ${sc.pk_SucursalId}" 
+         th:text="Eliminar"></a>
+      </td>
+    </tr>
+    </th:block>
+  </tbody>
+</table>
+  </div>
+
+</body>
+</html>
+
+<!--<th:block th:each="sucursales:${sucursales}">
+  
+      <form  th:action="@{/sucursal/update}" th:object="${sucursales}" method="post">
+      <input type="text" th:field="*{nomSucursal{${sucursales.nomSucursal}}}"/>
+       
+       <input type="submit" class="btn btn-primary" value="Guardar"/>
+       </form>
+       </th:block>-->
+

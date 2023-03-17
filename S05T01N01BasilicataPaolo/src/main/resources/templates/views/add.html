@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es" dir="ltr">
+ <head th:replace="temp :: head">
+<title></title>
+</head>
+<body>
+  <header th:replace="~{temp :: header}"></header>
+  <div class="container">
+       <h1 th:text="${title}"></h1>
+  </div>
+  
+  <div class="container">
+<form th:action="@{/sucursal/save}" th:object="${sucursal}" method="post">
+  <div class="row mb-3">
+    <label for="nom" class="col-sm-2 col-form-label">Nom scursal</label>
+    <div class="col-sm-10">
+    <input type="hidden" th:field="*{pk_SucursalId}">
+      <input type="text" th:field="*{nomSucursal}" class="form-control" id="nomSucursal" placeholder="nom sucursal" required>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label for="pais" class="col-sm-2 col-form-label">Pais sucursal</label>
+    <div class="col-sm-10">
+      <input type="text" th:field="*{paisScursal}" class="form-control" id="pais" placeholder="pais sucursal" required>
+    </div>
+  </div>
+  <input type="submit" class="btn btn-primary" value="Guardar"/>
+</form>
+  </div>
+  <footer th:replace="temp :: footer"></footer>
+</body>
+</html>

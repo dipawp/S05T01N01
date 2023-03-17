@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es" dir="ltr">
+ <head th:replace="temp :: head">
+ 
+<title></title>
+</head>
+<body>
+  <header th:replace="temp :: header"></header>
+  <div class="container">
+       <h1 th:text="${title}"></h1>
+  </div>
+  
+  <div class="container">
+  <div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item" th:value="3" th:text="'id: ' + ${sucursal.pk_SucursalId}"></li>
+    <li class="list-group-item" th:text="'nom: ' + ${sucursal.nomSucursal}">A second item</li>
+    <li class="list-group-item" th:text="'pais: ' + ${sucursal.paisScursal}">A third item</li>
+    <li class="list-group-item" th:text="'ubicació: ' + ${sucursal.tipusSucursal}">A third item</li>
+  </ul>
+</div>
+  </div>
+
+</body>
+</html>
